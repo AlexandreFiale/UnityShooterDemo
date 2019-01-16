@@ -1,13 +1,100 @@
-<script src="{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/TemplateData/UnityProgress.js"></script>  
+<script src="{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/TemplateData/UnityProgress.js"></script>
 <script src="{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/Build/UnityLoader.js"></script>
 <script>
-  var gameInstance = UnityLoader.instantiate("gameContainer", "{{ site.baseurl}}/assets/unity/{{page.unity_dir}}/Build/dist.json",{onProgress: UnityProgress});
+    var gameInstance = UnityLoader.instantiate("gameContainer", "{{ site.baseurl}}/assets/unity/{{page.unity_dir}}/Build/dist.json", {onProgress: UnityProgress});
 </script>
 
+<style>
+    .webgl-content * {
+        border: 0;
+        margin: 0;
+        padding: 0
+    }
+
+    .webgl-content {
+        position: relative;
+    }
+
+    .webgl-content .logo, .progress {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .webgl-content .logo {
+        background: url('{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/TemplateData/progressLogo.Light.png') no-repeat center / contain;
+        width: 154px;
+        height: 130px;
+    }
+
+    .webgl-content .progress {
+        height: 18px;
+        width: 141px;
+        margin-top: 90px;
+    }
+
+    .webgl-content .progress .empty {
+        background: url('{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/TemplateData/progressEmpty.Light.png') no-repeat right / cover;
+        float: right;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+
+    .webgl-content .progress .full {
+        background: url('{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/TemplateData/progressFull.Light.png') no-repeat left / cover;
+        float: left;
+        width: 0%;
+        height: 100%;
+        display: inline-block;
+    }
+
+    .webgl-content .logo.Dark {
+        background-image: url('{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/TemplateData/progressLogo.Dark.png');
+    }
+
+    .webgl-content .progress.Dark .empty {
+        background-image: url('{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/TemplateData/progressEmpty.Dark.png');
+    }
+
+    .webgl-content .progress.Dark .full {
+        background-image: url('{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/TemplateData/progressFull.Dark.png');
+    }
+
+    .webgl-content .footer {
+        margin-top: 5px;
+        height: 38px;
+        line-height: 38px;
+        font-family: Helvetica, Verdana, Arial, sans-serif;
+        font-size: 18px;
+    }
+
+    .webgl-content .footer .webgl-logo, .fullscreen {
+        height: 100%;
+        display: inline-block;
+        background: transparent center no-repeat;
+    }
+
+    .webgl-content .footer .webgl-logo {
+        background-image: url('{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/TemplateData/webgl-logo.png');
+        width: 204px;
+        float: left;
+    }
+
+    .webgl-content .footer .fullscreen {
+        background-image: url('{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/TemplateData/fullscreen.png');
+        width: 38px;
+        float: right;
+    }
+</style>
+
 <div class="webgl-content">
-  <div id="gameContainer" style="width: 600px; height: 960px"></div>
-  <div class="footer">
-    <div class="webgl-logo">&nbsp;</div>
-    <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)">&nbsp;</div>
-  </div>
+    <div id="gameContainer" style="width: 600px; height: 960px"></div>
+    <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+    </div>
 </div>
+
