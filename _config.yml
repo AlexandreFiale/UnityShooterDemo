@@ -1,1 +1,3 @@
 theme: jekyll-theme-cayman
+exclude: [Assets, dist, Library, Logs, obj, Packages, ProjectSettings, ShooterDemo.sln, Assembly-CSharp.csproj, .idea]
+title: ShooterDemo
