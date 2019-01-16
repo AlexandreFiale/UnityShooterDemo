@@ -345,3 +345,6 @@ Assets/*
 Assembly-CSharp.csproj
 ProjectSettings/*
 ShooterDemo.sln
+_site/*
+dist/*
+assets/unity/shooter_demo/index.html
